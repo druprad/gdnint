@@ -1,0 +1,47 @@
+<?php
+/**
+ * Override hook_block_list_alter to hide blocks as per functionality
+ */
+function customblock_block_list_alter(&$blocks) {
+  global $language, $theme_key;
+
+  $node = menu_get_object();
+
+  $opportunityBlockDelta = '632c6a6948db8a6e1abeefffbb2a47e1';
+  $analysisBlockDetla = 'c3cc961a461ab144fd61ed14fa2780c4';
+  $impactBlockDetla = 'd0c1cfad3aa9a6c2674f7bc1a22ddda2';
+
+  if ( !empty($node) ) {
+    if( $node->type == 'article' ) {
+      $articleType = $node->field_article_type['und'][0]['taxonomy_term']->name;
+      
+
+      foreach ($blocks as $key => $block) {
+        if(strtolower($articleType) == 'opportunities') {
+          if(in_array($block->delta, array($analysisBlockDetla, $impactBlockDetla))) {
+            unset($blocks[$key]);
+          }
+        } elseif (strtolower($articleType) == 'analysis') {
+          if(in_array($block->delta, array($opportunityBlockDelta, $impactBlockDetla))) {
+            unset($blocks[$key]);
+          }
+        } elseif (strtolower($articleType) == 'impact') {
+          if(in_array($block->delta, array($opportunityBlockDelta, $analysisBlockDetla))) {
+            unset($blocks[$key]);
+          }
+        } else {
+          if(in_array($block->delta, array($opportunityBlockDelta, $analysisBlockDetla, $impactBlockDetla))) {
+            unset($blocks[$key]);
+          }
+        }
+      }
+    } else {
+      foreach ($blocks as $key => $block) {
+        if(in_array($block->delta, array($opportunityBlockDelta, $analysisBlockDetla, $impactBlockDetla))) {
+          unset($blocks[$key]);
+        }
+      }
+    }
+  }
+}
+

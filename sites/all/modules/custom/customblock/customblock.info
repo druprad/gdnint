@@ -1,0 +1,4 @@
+name = Custom Block
+description = Custom code for block management 
+core = 7.x
+package = Custom
