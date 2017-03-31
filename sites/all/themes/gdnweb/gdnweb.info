@@ -1,0 +1,27 @@
+name = Gdnweb
+description = "gdnweb - Responsive Multi-Purpose Drupal Theme"
+core = 7.x
+
+regions[logo] = Logo
+regions[navigation] = Navigation
+regions[search] = Search
+regions[banner] = Static Banner
+regions[content] = Content
+regions[right_sidebar] = Right sidebar
+regions[left_sidebar] = Left sidebar
+regions[home_row_first] = Home page First Row
+regions[home_row_second] = Home page Second Row
+regions[home_row_third] = Home page Third Row
+regions[home_row_fourth] = Home page Fourth Row
+regions[bottom_first] = Bottom First
+regions[bottom_second] = Bottom Second
+regions[bottom_third] = Bottom Third
+regions[bottom_fourth] = Bottom Fourth
+regions[copyright] = Copyright
+regions[footer_menu] = Footer Menu
+
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/bootstrap.min.css
+;stylesheets[all][] = css/font-awesome.min.css
+
+scripts[] = js/bootstrap.min.js
