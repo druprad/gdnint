@@ -94,7 +94,7 @@ function gdnweb_css_alter(&$css) {
 
 function gdnweb_preprocess_views_view(&$vars) {
   if($vars['name'] == "home_page_blocks") {
-    if($vars['display_id'] == "block_3") {
+    if($vars['display_id'] == "block_3" || $vars['display_id'] == "block") {
           $vars['classes_array'] = array();
           $vars['classes_array'][] = 'row';
     }
