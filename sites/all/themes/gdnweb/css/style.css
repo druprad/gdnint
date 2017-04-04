@@ -292,10 +292,6 @@ ul.tips {
 #skip-link a:focus {
   outline: 0;
 }
-#logo {
-  float: left; /* LTR */
-  padding: 15px 15px 15px 10px; /* LTR */
-}
 #name-and-slogan {
   float: left; /* LTR */
   padding-top: 34px;
@@ -1708,11 +1704,11 @@ li { list-style:none;}
 
 .headerbottom { position:relative;}
 
-#analysis { background:#f9f9f9; border-radius:10px; overflow:hidden; padding:40px; margin:0px; padding-bottom:0px; }
+.analysis { background:#f9f9f9; border-radius:10px; overflow:hidden; padding:40px; margin:0px; padding-bottom:0px; }
 
-#analysis .dexp-grid-item { padding:0px; margin:15px 0px}
+.analysis .dexp-grid-item { padding:0px; margin:15px 0px}
 
-#analysis .block-main { background:none; text-align:center; min-height:auto; margin-bottom:20px;}
+.analysis .block-main { background:none; text-align:center; min-height:auto; margin-bottom:20px;}
 
 .ablockimg img { border-radius:50%; width:180px; height:180px; padding:20px; background-color:#fff; }
 
@@ -1803,5 +1799,7 @@ li { list-style:none;}
 .blockimg p { min-height:auto;}
 }
 
-
+.menu-218 li a {
+  content: '<i class="fa fa-home"></i>';
+}
 

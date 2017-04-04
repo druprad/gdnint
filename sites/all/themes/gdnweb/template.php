@@ -72,3 +72,22 @@ function gdnweb_form_search_block_form_alter(&$form) {
   $form['search_block_form']['#attributes']['placeholder'] = t('Start Typing...');
   $form['actions']['#attributes']['class'][] = 'element-invisible';
 }
+
+
+function gdnweb_css_alter(&$css) {
+  
+    /*unset($css[drupal_get_path('module','system').'/system.theme.css']);
+    unset($css[drupal_get_path('module','system').'/system.base.css']);
+    unset($css[drupal_get_path('module','system').'/system.menus.css']);
+
+    unset($css[drupal_get_path('module','field_group').'/field_group.field_ui.css']);
+    unset($css[drupal_get_path('module','views').'/css/views.css']);
+    unset($css[drupal_get_path('module','user').'/user.css']);
+    unset($css[drupal_get_path('module','search').'/search.css']);
+    unset($css[drupal_get_path('module','node').'/node.css']);
+    unset($css[drupal_get_path('module','field').'/theme/field.css']);
+    unset($css[drupal_get_path('module','comment').'/comment.css']);*/
+
+    // echo '<pre>'; print_r($css); echo '</pre>'; die;
+    
+}
