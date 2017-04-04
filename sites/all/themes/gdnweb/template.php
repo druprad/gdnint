@@ -91,3 +91,12 @@ function gdnweb_css_alter(&$css) {
     // echo '<pre>'; print_r($css); echo '</pre>'; die;
     
 }
+
+function gdnweb_preprocess_views_view(&$vars) {
+  if($vars['name'] == "home_page_blocks") {
+    if($vars['display_id'] == "block_3") {
+          $vars['classes_array'] = array();
+          $vars['classes_array'][] = 'row';
+    }
+  }
+}
