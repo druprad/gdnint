@@ -45,3 +45,19 @@ function customblock_block_list_alter(&$blocks) {
   }
 }
 
+function customblock_views_pre_render(&$view) {
+  // Removing 'height' and 'width' attributes of img tag for home page blocks.
+  if($view->name == 'home_page_blocks') {
+      $viewsList = array(
+            'block_3',
+            'block_1',
+            'block'
+        );
+      if(in_array($view->current_display, $viewsList)) {
+          foreach($view->result as $row) {
+            unset($row->field_field_article_image[0]['rendered']['#item']['width']);  
+            unset($row->field_field_article_image[0]['rendered']['#item']['height']);  
+          }  
+      }
+  }
+}
