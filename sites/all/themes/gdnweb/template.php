@@ -100,3 +100,19 @@ function gdnweb_preprocess_views_view(&$vars) {
     }
   }
 }
+
+
+function gdnweb_menu_link($variables) {
+
+  $menuItemPrefix = '<i class="fa fa-angle-right"></i>';
+
+  if(in_array('menu_link__menu_footer_custom', $variables['element']['#theme'])) {
+    // Referred from https://knackforge.com/blog/pathirakaliappan/drupal-add-icon-menu-links
+    unset($variables['element']['#attributes']['class']);
+    $element = $variables ['element'];
+    $output = l($element ['#title'], $element ['#href'], $element ['#localized_options']);
+    return '<li' . drupal_attributes($element ['#attributes']) . '>' . $menuItemPrefix . $output . "</li>";
+  }
+
+  return theme_menu_link($variables);
+}

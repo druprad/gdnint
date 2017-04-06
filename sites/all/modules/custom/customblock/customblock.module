@@ -61,3 +61,19 @@ function customblock_views_pre_render(&$view) {
       }
   }
 }
+
+
+// function customblock_preprocess_menu_link(&$vars)
+// {
+//   print_r($vars);
+//   global $user;
+//   // Reference the menu item
+//   $element = &$vars['element'];
+//   // If the path the menu links to is 'my_account', and
+//   // The user is on their account page, add a class of
+//   // .active to the menu item
+//   if($element['#href'] == 'my_account' && current_path() == 'user/' . $user->uid)
+//   {
+//     $element['#localized_options']['attributes']['class'][] = "active";
+//   }
+// }
