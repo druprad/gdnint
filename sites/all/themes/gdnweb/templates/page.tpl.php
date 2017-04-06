@@ -1,4 +1,4 @@
-<div id="section-top" class="dexp-section">
+
   <div id="section-header" class="dexp-section">
     <div class="container">
       <div class="row">
@@ -92,4 +92,3 @@
     </div><!--section-footer-->
     <!--Footer Block end-->
   </div>
-</div><!--sectiontop-->
