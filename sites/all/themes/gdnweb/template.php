@@ -116,3 +116,49 @@ function gdnweb_menu_link($variables) {
 
   return theme_menu_link($variables);
 }
+
+/**
+ * Generate markup for our list.
+ */
+function gdnweb_taxonomy_menu_block($variables) {
+  $tree = $variables['items'];
+  $config = $variables['config'];
+
+  $num_items = count($tree);
+  $i = 0;
+
+  $output = '<ul>';
+  foreach ($tree as $tid => $term) {
+    $i++;
+    // Add classes.
+    $attributes = array();
+    if ($i == 1) {
+      $attributes['class'][] = 'first';
+    }
+    if ($i == $num_items) {
+      $attributes['class'][] = 'last';
+    }
+    if ($term['active_trail'] == '1') {
+      $attributes['class'][] = 'active-trail';
+    }
+    if ($term['active_trail'] == '2') {
+      $attributes['class'][] = 'active';
+    }
+
+    // Alter link text if we have to display the nodes attached.
+    if (isset($term['nodes'])) {
+      $term['name'] = $term['name'] . ' (' . $term['nodes'] . ')';
+    }
+
+    // Set alias option to true so we don't have to query for the alias every
+    // time, as this is cached anyway.
+    $output .= '<li' . drupal_attributes($attributes) . '><i class="fa fa-angle-right"></i>' . l($term['name'], $term['path'], $options = array('alias' => TRUE));
+    if (!empty($term['children'])) {
+      $output .= theme('taxonomy_menu_block__' . $config['delta'], (array('items' => $term['children'], 'config' => $config)));
+    }
+    $output .= '</li>';
+  }
+  $output .= '</ul>';
+
+  return $output;
+}
