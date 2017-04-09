@@ -86,7 +86,12 @@
           </div>
         </div><!--row-->
         <div class="row intro">
-          <?php print render($page['copyright']); ?>
+          <div  class="dexp-grid-item col-lg-8 col-md-8 col-sm-6 col-xs-12">
+            <?php print render($page['footer_intro']); ?>
+          </div>
+          <div class="dexp-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12 footerright">
+            <?php print render($page['footer_social']); ?>
+          </div>
         </div><!--row-->
       </div><!--container-->
     </div><!--section-footer-->

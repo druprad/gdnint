@@ -17,7 +17,8 @@ regions[bottom_first] = Bottom First
 regions[bottom_second] = Bottom Second
 regions[bottom_third] = Bottom Third
 regions[bottom_fourth] = Bottom Fourth
-regions[copyright] = Copyright
+regions[footer_intro] = Footer Intro
+regions[footer_social] = Footer Social
 regions[footer_menu] = Footer Menu
 
 stylesheets[all][] = css/style.css
