@@ -1969,5 +1969,8 @@ li { list-style:none;}
 .blockimg p { min-height:auto;}
 }
 
+tr, tr.even {
+  background: #FFFFFF !important;
+}
 
 
