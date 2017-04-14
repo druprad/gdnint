@@ -148,7 +148,11 @@
       background: rgba(255,255,255,0.95);
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
       .dexp-dropdown{
-        >ul>li>a,>ul>li>span.nolink{
+        >ul>li>a{
+          line-height: 0px;
+          .transition(line-height,0.3s,linear);
+        }
+        >ul>li>span.nolink{
           line-height: @fixed_header_height;
           .transition(line-height,0.3s,linear);
         }
@@ -157,7 +161,8 @@
         line-height: @fixed_header_height;
       }
       .search-toggle {
-        line-height: @fixed_header_height;
+        /*line-height: @fixed_header_height;*/
+        line-height: 0px;
       }
     }
     a.site-logo{
