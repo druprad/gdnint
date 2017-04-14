@@ -133,6 +133,7 @@ body.ltr{
         ul li {
           font-size: 14px;
           color: inherit;
+          line-height: 25px;
         }
         ul.menu li {
           margin-left: 0px !important;
@@ -160,10 +161,15 @@ body.ltr{
   }
 
   #section-footer {
-    .region-copyright p {
+    .region-copyright {
+      h4 {
+        margin: 10px 0 10px 0;
+      }
+      p {
         color: #666;
         margin: 0 0 10px;
         font-size: 14px;
+      }
     }
 
     .container .row ul.contact-info li {
@@ -280,10 +286,16 @@ li { list-style:none;}
 .news-info i { margin-right:10px; }
 .intro p { color:#666; }
 
-.footerright { text-align:right; margin-top:10px;}
+.footerright { 
+  text-align:right; margin-top:10px;
+  p {
+    margin:0px;
+  }
+}
 
 #section-footer{
-  background:#f9f9f9; padding-top:20px!important;
+  background:#f9f9f9; 
+  /*padding-top:20px!important;*/
 	& i { margin-right:15px; }
   & .contact-info li {
     color:#666;
