@@ -84,3 +84,68 @@ function splash_form_search_block_form_alter(&$form) {
   $form['search_block_form']['#attributes']['placeholder'] = t('Start Typing...');
   $form['actions']['#attributes']['class'][] = 'element-invisible';
 }
+
+/************* Custom code starts *************/
+
+function splash_menu_link($variables) {
+
+  $menuItemPrefix = '<i class="fa fa-angle-right"></i>';
+
+  if(@in_array('menu_link__menu_footer_custom', $variables['element']['#theme'])) {
+    // Referred from https://knackforge.com/blog/pathirakaliappan/drupal-add-icon-menu-links
+    unset($variables['element']['#attributes']['class']);
+    $element = $variables ['element'];
+    $output = l($element ['#title'], $element ['#href'], $element ['#localized_options']);
+    return '<li' . drupal_attributes($element ['#attributes']) . '>' . $menuItemPrefix . $output . "</li>";
+  }
+
+  return theme_menu_link($variables);
+}
+
+
+
+/**
+ * Generate markup for our list.
+ */
+function splash_taxonomy_menu_block($variables) {
+  $tree = $variables['items'];
+  $config = $variables['config'];
+
+  $num_items = count($tree);
+  $i = 0;
+
+  $output = '<ul>';
+  foreach ($tree as $tid => $term) {
+    $i++;
+    // Add classes.
+    $attributes = array();
+    if ($i == 1) {
+      $attributes['class'][] = 'first';
+    }
+    if ($i == $num_items) {
+      $attributes['class'][] = 'last';
+    }
+    if ($term['active_trail'] == '1') {
+      $attributes['class'][] = 'active-trail';
+    }
+    if ($term['active_trail'] == '2') {
+      $attributes['class'][] = 'active';
+    }
+
+    // Alter link text if we have to display the nodes attached.
+    if (isset($term['nodes'])) {
+      $term['name'] = $term['name'] . ' (' . $term['nodes'] . ')';
+    }
+
+    // Set alias option to true so we don't have to query for the alias every
+    // time, as this is cached anyway.
+    $output .= '<li' . drupal_attributes($attributes) . '><i class="fa fa-angle-right"></i>' . l($term['name'], $term['path'], $options = array('alias' => TRUE));
+    if (!empty($term['children'])) {
+      $output .= theme('taxonomy_menu_block__' . $config['delta'], (array('items' => $term['children'], 'config' => $config)));
+    }
+    $output .= '</li>';
+  }
+  $output .= '</ul>';
+
+  return $output;
+}

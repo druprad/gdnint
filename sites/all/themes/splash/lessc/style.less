@@ -116,13 +116,59 @@ body{
 }
 
 body.ltr{
+
+  line-height:25px!important;
+
+  #section-bottom, #section-footer {
+    color: #333;
+
+    .container .dexp-grid-item {
+        .h4, h4 {
+          font-size: 18px;
+          font-weight: 500;
+          font-family: inherit;
+          line-height: 1.1;
+          color: inherit;
+        }
+        ul li {
+          font-size: 14px;
+          color: inherit;
+        }
+        ul.menu li {
+          margin-left: 0px !important;
+        }
+      }
+  }  
+
   #section-bottom{
     background-repeat: repeat-y;
     background-color: #f9f9f9;
-    padding-top:15px;
+    padding-top:20px!important;
     background-size: 100%;
+    font-family: "Myriad Pro"!important; color:#333; line-height:25px!important;
+    i {
+      margin-right: 15px;
+    }
     .container{
       background-color: #f9f9f9;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+
+    }
+  }
+
+  #section-footer {
+    .region-copyright p {
+        color: #666;
+        margin: 0 0 10px;
+        font-size: 14px;
+    }
+
+    .container .row ul.contact-info li {
+      color: #666;
+      line-height: 25px;
     }
   }
 }
@@ -130,7 +176,7 @@ body.rtl{
   #section-bottom{
     background-repeat: repeat-y;
     background-color: #f9f9f9;
-    padding-top:15px;
+    padding-top:20px!important;
     background-size: 100%;
     .container{
       background-color: #f9f9f9;
@@ -347,4 +393,45 @@ li { list-style:none;}
       a{color: @text_color;}
     }
   }
+}
+
+/** Media Queries By ANU **/
+
+@media (min-width: 769px) and (max-width: 1024px)
+{
+.container { width:100%!important;}
+.block-main {  margin-bottom:5%;}
+}
+
+@media (min-width: 481px) and (max-width: 768px)
+{
+.container { width:100%!important;}
+.block-main {  margin-bottom:5%;}
+.region-navigation  ul li a { margin-left:22px;}
+}
+
+
+@media (min-width: 321px) and (max-width: 480px)
+{
+.container { width:100%!important;}
+.block-main {  margin-bottom:5%;}
+.dexp-logo { width:100%; text-align:center;}
+.tagline p { text-align:center; width:100%;}
+.headerbottom p { font-size:100%; padding-top:50%;}
+#header-bottommain { margin-top:39%;}
+.region-navigation { padding-top:10%;}
+.blockimg p { min-height:auto;}
+
+}
+
+@media (max-width: 320px)
+{
+.container { width:100%!important;}
+.block-main {  margin-bottom:5%;}
+.dexp-logo { width:100%; text-align:center;}
+.tagline p { text-align:center; width:100%;}
+.headerbottom p { font-size:100%; padding-top:50%;}
+#header-bottommain { margin-top:52%;}
+.region-navigation { padding-top:10%;}
+.blockimg p { min-height:auto;}
 }
