@@ -98,7 +98,7 @@
        <a href="<?php print $node_url;?>"><?php print $title;?></a>
     </h6>
     <p><?php print strip_tags(render($content['body']));?></p>
-    <a class="more" href="<?php print $node_url;?>"><?php print t('read more ›');?></a>
+    <a class="dexp-shortcodes-button btn btn btn-blue" href="<?php print $node_url;?>"><?php print t('read more ›');?></a>
   </section>
   <div class="clearfix"></div>
  </div> 
