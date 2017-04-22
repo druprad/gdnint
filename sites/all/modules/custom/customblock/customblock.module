@@ -60,4 +60,15 @@ function customblock_views_pre_render(&$view) {
           }  
       }
   }
+
+  if($view->current_display == 'block_6') {
+    foreach($view->result as $row) {
+        if(count($row->field_field_article_reference) == 0) {
+          $view->build_info['title'] = "";
+        } else {
+          $view->build_info['title'] = "Related Articles";
+        }
+        //echo "<pre style='display:none'>"; print_r(count($row->field_field_article_reference)); echo "</pre>";
+    }
+  }
 }
