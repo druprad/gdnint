@@ -3,17 +3,17 @@
 
 @font-face{
     font-family: "Myriad-Pro";
-    src: url(fonts/MyriadPro-Regular.OTF) format("truetype");
+    src: url(fonts/MyriadPro-Regular.otf) format("truetype");
 }
 
 @font-face{
     font-family: "fontawesome";
-    src: url(fonts/FontAwesome.OTF) format("truetype");
+    src: url(fonts/FontAwesome.otf) format("truetype");
 }
 
 * { margin:0px; padding:0px;}
 
-body { font-family: "Myriad Pro"!important; color:#000; line-height:25px!important; }
+body { font-family: "Myriad-Pro"!important; color:#000; line-height:25px!important; }
 
 a { text-decoration:none; color:#000!important;}
 
