@@ -1676,6 +1676,8 @@ li { list-style:none;}
 
 .tagline  a.search-toggle { margin-right:10px; font-size:13px; color:#e91b2d!important;}
 
+.tagline  a.search-toggle i.fa-search { font-size: 16px;}
+
 .block-main { background:#f9f9f9; overflow:hidden;  position:relative;}
 
 .blockimg p { margin:10px; min-height:148px;}
