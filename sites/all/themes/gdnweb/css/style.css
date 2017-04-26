@@ -1666,8 +1666,6 @@ li { list-style:none;}
 
 .dexp-logo { float:left;}
 
-.region-navigation { float:right; }
-
 .tagline { text-align:right; padding-top:37px;}
 
 .tagline p span{ color: #444; font-weight: bold; font-size: 18px; }
@@ -1972,5 +1970,20 @@ li { list-style:none;}
 tr, tr.even {
   background: #FFFFFF !important;
 }
+#dexp-dropdown span.menu-toggler {
+  display: none;
+}
+#dexp-dropdown ul.menu {
+  float: right;
+}
+#dexp-dropdown ul.menu ul {
+  background: #fff;
+}
+#dexp-dropdown ul.menu ul li {
+border-bottom: 1px solid rgba(0,0,0,0.05);
+line-height:40px;
+}
 
-
+#dexp-dropdown ul.menu li.last, div.block-dexp-menu div.content, div.block-dexp-popup-login div.content {
+  padding-right: 0px !important;
+}
