@@ -1987,3 +1987,7 @@ line-height:40px;
 #dexp-dropdown ul.menu li.last, div.block-dexp-menu div.content, div.block-dexp-popup-login div.content {
   padding-right: 0px !important;
 }
+
+#dexp-dropdown ul.menu ul.menu {
+  background-color: #f9f9f9;
+}

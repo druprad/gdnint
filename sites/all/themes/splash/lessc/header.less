@@ -4,7 +4,6 @@
 @mobile_header_height = 70px;
 @media screen and (min-width: 992px){
   #section-header{
-
     position:fixed;
     border-bottom:1px solid #f9f9f9;
     padding-top:8px !important;
@@ -13,13 +12,16 @@
 
     background: #FFF;
     .dexp-dropdown{
-			>ul{
-				text-align: right;
-			 	li{
-					padding: 0;
-					margin: 0;
-				}
-			}
+      >ul{
+        text-align: right;
+        li{
+          padding: 0;
+          margin: 0;
+        }
+        ul.menu {
+          background-color: #f9f9f9
+        }
+      }
       >ul>li>a {
         line-height: 0px;
         text-transform: uppercase;
@@ -305,4 +307,7 @@
             color:#B9BEC3;
         }
     }
+}
+.dexp-dropdown > ul ul {
+  min-width:240px !important;
 }
