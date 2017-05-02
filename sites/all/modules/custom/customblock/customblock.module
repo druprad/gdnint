@@ -14,7 +14,7 @@ function customblock_block_list_alter(&$blocks) {
   if ( !empty($node) ) {
     if( $node->type == 'article' ) {
       $articleType = $node->field_article_type['und'][0]['taxonomy_term']->name;
-      
+
 
       foreach ($blocks as $key => $block) {
         if(strtolower($articleType) == 'opportunities') {
@@ -55,9 +55,9 @@ function customblock_views_pre_render(&$view) {
         );
       if(in_array($view->current_display, $viewsList)) {
           foreach($view->result as $row) {
-            unset($row->field_field_article_image[0]['rendered']['#item']['width']);  
-            unset($row->field_field_article_image[0]['rendered']['#item']['height']);  
-          }  
+            unset($row->field_field_article_image[0]['rendered']['#item']['width']);
+            unset($row->field_field_article_image[0]['rendered']['#item']['height']);
+          }
       }
   }
 
@@ -72,3 +72,23 @@ function customblock_views_pre_render(&$view) {
     }
   }
 }
+
+/**
+ * Implementation of hook_views_query_alter
+ * @param type $view
+ * @param type $query
+ */
+function customblock_views_query_alter(&$view, &$query) {
+  // Condition for Sidebar filter on Category Page.
+  if ($view->name == 'related_article_for_category') {
+    $term_id = arg(2);
+    if(!empty($term_id)) {
+      $query->where[1]['conditions'][1] = array(
+                                  'field' => 'taxonomy_term_data.tid',
+                                  'value' => array($term_id),
+                                  'operator' =>'NOT IN'
+                              );
+    }
+  }
+}
+
