@@ -1,5 +1,5 @@
 /*#################################################################
-	BLOG TEASER MODE
+    BLOG TEASER MODE
 ################################################################# */
 
 .post {
@@ -45,7 +45,7 @@
 
 /* Meta */
 .meta {
-	margin: 15px 0 5px -5px;
+    margin: 15px 0 5px -5px;
     ul {
         line-height: 22px;
         margin: 1px 0 0 0;
@@ -86,12 +86,12 @@
 }
 
 /*#################################################################
-	BLOG: Iframe Vimeo, Youtube ...
+    BLOG: Iframe Vimeo, Youtube ...
 ################################################################# */
 .media-vimeo-video, .media-youtube-video,.media-soundcloud-preview-wrapper {
-  position: relative; 
-  padding-bottom: 56.25%; 
-  height: 0; 
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
   overflow: hidden;
   iframe,object, embed {
       height: 100%;
@@ -103,7 +103,7 @@
 }
 
 /*#################################################################
-	LATEST POST AT BOTTOM REGION
+    LATEST POST AT BOTTOM REGION
 ################################################################# */
 .latest-posts {
   ul {
@@ -137,7 +137,7 @@
 }
 
 /*#################################################################
-	POPULAR POST
+    POPULAR POST
 ################################################################# */
 .popular-post .item-list ul {
   list-style:none;
@@ -152,7 +152,7 @@
   }
   li {
     clear: both;
-    margin: 0 0 30px 0;
+    margin: 0 0 15px 0;
     display: block;
     overflow: hidden;
     &:first-child {
@@ -166,9 +166,9 @@
     text-transform: none;
     letter-spacing: normal;
     font-weight: 700;
-    a {   
+    a {
       color: #888;
-      &:hover { 
+      &:hover {
         color: @base_color;
       }
     }
@@ -271,9 +271,27 @@
        line-height:36px;
     }
 }
+.view-related-article-for-category {
+    ul li {
+        min-height: 100px;
+        margin: 20px 0 15px 0;
+    }
+    .ablockimg {
+        img {
+            height: 80px;
+            width: 80px;
+            margin: 10px;
+            padding: 2px;
+            background-color:#f1f1f1;
+        }
+    }
+    div.term-title {
+        margin: 35px 0 0 0;
+    }
+}
 ul.circled {
     padding: 0;
-    list-style: none; 
+    list-style: none;
     margin: 0px 0 40px 0;
     li {
         margin:0;
@@ -295,15 +313,15 @@ ul.circled {
             color: #888888;
         }
         .count {
-            float:right; 
-            background:#eb5a55; 
-            margin-right:20px; 
-            color:#fff; 
-            padding:1px 5px 3px 8px; 
-            font-size:10px; 
-            border-radius:3px; 
-            line-height:14px; 
-            width:22px; 
+            float:right;
+            background:#eb5a55;
+            margin-right:20px;
+            color:#fff;
+            padding:1px 5px 3px 8px;
+            font-size:10px;
+            border-radius:3px;
+            line-height:14px;
+            width:22px;
             height:20px;
         }
     }
@@ -403,9 +421,9 @@ ul.circled {
     Hover Image effect
 *********************************************************************/
 figure {
-	display: block;
-	overflow: hidden;
-	position: relative;
+    display: block;
+    overflow: hidden;
+    position: relative;
     img {
         display: block;
         max-width: 100%;
@@ -413,7 +431,7 @@ figure {
         .transition(all,0.3s,ease-out);
         position: relative;
     }
-    
+
     a {
          display: block;
          position: relative;
@@ -422,58 +440,58 @@ figure {
                  .scale(1.1);
              }
          }
-     } 
-    
+     }
+
 }
 
 figure a .text-overlay {
-	opacity: 0;
+    opacity: 0;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-	-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	height: 100%;
-	position: absolute;
-	text-decoration: none;
-	width: 100%;
-	z-index: 100;
-	padding: 20px;
+    -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    height: 100%;
+    position: absolute;
+    text-decoration: none;
+    width: 100%;
+    z-index: 100;
+    padding: 20px;
     background: rgba(red(@base_color), green(@base_color), blue(@base_color),0.9);
     .transition(all,0.4s);
-	bottom:0px;
+    bottom:0px;
 }
 
 figure a:hover .text-overlay {
-	opacity: 1;
+    opacity: 1;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-	-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 figure a .text-overlay .info {
-	text-align: center;
-	top: 40%;
-	width: 100%;
-	left: 0;
-	position: absolute;
-	margin-top: -11px;
-	color: #fff;
-	font-size: 14px;
-	font-weight: 300;
-	text-transform: uppercase;
-	.transition(all,0.4s);
+    text-align: center;
+    top: 40%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    margin-top: -11px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    .transition(all,0.4s);
 }
 figure a .text-overlay .info h5 {
-	color: #fff;
-	font-size: 12px;
-	font-weight: 500;
-	text-transform:none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform:none;
 }
 figure a .text-overlay .info span i {
-	font-size: 40px;
-	color: rgba(255, 255, 255, 0.7) !important;
-	.transition(all,0.3s,ease);
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.7) !important;
+    .transition(all,0.3s,ease);
 }
 figure a .text-overlay .info span i:hover {
-	color: rgba(255, 255, 255, 1) !important;
+    color: rgba(255, 255, 255, 1) !important;
 }
 figure a:hover .text-overlay .info {
-	top: 50%;
+    top: 50%;
 }
