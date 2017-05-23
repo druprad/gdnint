@@ -73,11 +73,11 @@
       <div class="container">
         <div class="row">
           <div  class="dexp-grid-item col-lg-3 col-md-3 col-sm-3 col-xs-6">
-            <?php print render($page['bottom_first']); ?>
-          </div><!--griditem-->
-          <div  class="dexp-grid-item col-lg-3 col-md-3 col-sm-3 col-xs-6">
             <?php print render($page['bottom_second']); ?>
           </div>
+          <div  class="dexp-grid-item col-lg-3 col-md-3 col-sm-3 col-xs-6">
+            <?php print render($page['bottom_first']); ?>
+          </div><!--griditem-->
           <div  class="dexp-grid-item col-lg-3 col-md-3 col-sm-3 col-xs-6">
             <?php print render($page['bottom_third']); ?>
           </div>
