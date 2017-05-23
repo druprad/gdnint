@@ -10,20 +10,17 @@
 define('MENU_TREE__CURRENT_PAGE_MENU', '_active');
 
 // Off-load the following infrequently called hooks to another file.
+module_load_include('inc', 'menu_block', 'menu_block.admin');
 function menu_block_block_info() {
-  module_load_include('inc', 'menu_block', 'menu_block.admin');
   return _menu_block_block_info();
 }
 function menu_block_block_configure($delta = '') {
-  module_load_include('inc', 'menu_block', 'menu_block.admin');
   return _menu_block_block_configure($delta);
 }
 function menu_block_block_save($delta = '', $edit = array()) {
-  module_load_include('inc', 'menu_block', 'menu_block.admin');
   return _menu_block_block_save($delta, $edit);
 }
 function menu_block_form_block_admin_display_form_alter(&$form, $form_state) {
-  module_load_include('inc', 'menu_block', 'menu_block.admin');
   return _menu_block_form_block_admin_display_form_alter($form, $form_state);
 }
 
