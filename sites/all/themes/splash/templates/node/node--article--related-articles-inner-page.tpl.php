@@ -85,9 +85,15 @@
 <div class="icon-overlay">
   <a href="<?php print $node_url; ?>">
     <span class="icn-more"></span>
-    <?php print render($content['field_media']);?>
+      <?php
+        $image_url = file_create_url($node->field_article_image['und']['0']['uri']);
+        $image_url = parse_url($image_url);
+        $image_path = $image_url['path'];
+      ?>
+      <img src="<?php print $image_path;?>">
+    <?php //print render($content['field_media']);?>
   </a>
-</div>  
+</div>
 
 <div class="meta">
   <h5>

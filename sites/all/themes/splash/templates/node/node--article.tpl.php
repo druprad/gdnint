@@ -82,9 +82,15 @@
 <div id="node-<?php print $node->nid; ?>" class="post">
 
     <div class="media_element">
-      <?php print render($content['field_media']);?>
+      <?php
+        $image_url = file_create_url($node->field_article_image['und']['0']['uri']);
+        $image_url = parse_url($image_url);
+        $image_path = $image_url['path'];
+      ?>
+      <img src="<?php print $image_path;?>">
+      <?php //print render($content['field_article_image']);?>
     </div>
-  
+
     <section class="post-content">
         <div class="meta">
              <ul>
@@ -95,10 +101,10 @@
              </ul>
         </div>
         <h2><a href="<?php print $node_url;?>"><?php print $title;?></a></h2>
-  
+
         <div class="post_desc">
           <?php print render($content['body']);?>
         </div>
-    </section>    
+    </section>
 </div>
 <?php print render($content['comments']); ?>

@@ -83,9 +83,15 @@
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
    <!-- Begin media blog -->
-      <?php print render($content['field_media']);?>
+      <?php
+        $image_url = file_create_url($node->field_article_image['und']['0']['uri']);
+        $image_url = parse_url($image_url);
+        $image_path = $image_url['path'];
+      ?>
+      <img src="<?php print $image_path;?>">
+      <?php //print render($content['field_media']);?>
    <!-- End media blog -->
-  
+
   <section class="post-content">
     <div class="meta">
         <ul>
@@ -101,4 +107,4 @@
     <a class="dexp-shortcodes-button btn btn btn-blue" href="<?php print $node_url;?>"><?php print t('read more ›');?></a>
   </section>
   <div class="clearfix"></div>
- </div> 
+ </div>
