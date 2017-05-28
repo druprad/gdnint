@@ -82,13 +82,14 @@
 <div id="node-<?php print $node->nid; ?>" class="post">
 
     <div class="media_element">
+
       <?php
         $image_url = file_create_url($node->field_article_image['und']['0']['uri']);
         $image_url = parse_url($image_url);
         $image_path = $image_url['path'];
       ?>
       <img src="<?php print $image_path;?>">
-      <?php //print render($content['field_article_image']);?>
+      <?php //print render(drupal_realpath('public://');$content['field_article_image']['und']['0']['uri']);?>
     </div>
 
     <section class="post-content">
@@ -105,6 +106,10 @@
         <div class="post_desc">
           <?php print render($content['body']);?>
         </div>
+        <?php
+          // $block = module_invoke('block', 'block_view', '45');
+          // print render($block['content']);
+        ?>
     </section>
 </div>
 <?php print render($content['comments']); ?>
