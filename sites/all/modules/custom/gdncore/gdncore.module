@@ -1,0 +1,84 @@
+<?php
+/**
+* Implements hook_block_info().
+*/
+function gdncore_block_info() {
+  $blocks = array();
+
+  $blocks['vocabulary_terms'] = array(
+    'info' => t('Vocabulary Terms'),
+  );
+
+  return $blocks;
+}
+
+/**
+* Implements hook_block_view().
+*/
+function gdncore_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'vocabulary_terms':
+      $block['subject'] = '';
+      $block['content'] = _gdncore_vocabulary_terms();
+      break;
+  }
+
+  return $block;
+}
+
+function _gdncore_vocabulary_terms() {
+
+  $arg1 = arg(1);
+  $arg2 = arg(2);
+  $arg3 = (int) arg(3);
+
+  if($arg1 == 'taxonomy' && $arg2 == 'term') {
+    if($arg3 > 0) {
+      $termId = $arg3;
+    } else if($arg3 == '' || $arg3 == NULL) {
+      $termId = (int) arg(4);
+    }
+  }
+
+  $objTerm = taxonomy_term_load($termId);
+  $vocabMachineName = getVocabMachineName($objTerm->name);
+
+  $tree = NULL;
+  if($vocabMachineName) {
+    $objVocab = taxonomy_vocabulary_machine_name_load($vocabMachineName);
+    $tree = taxonomy_get_tree($objVocab->vid);
+  }
+
+  return theme('vocabulary_terms_theme', array('terms' => $tree));
+}
+
+/**
+* Implements hook_theme().
+*/
+function gdncore_theme($existing, $type, $theme, $path) {
+  return array(
+    'vocabulary_terms_theme' => array(
+      'variables' => array('taxonomies' => NULL ),
+      'template' => 'vocabulary_terms',
+    ),
+  );
+}
+
+
+function getVocabMachineName($vocabName) {
+
+  $vocabName = strtolower($vocabName);
+  $arrVocabMapper = array(
+    'research' => 'trends_categories',
+    'analysis' => 'impact_categories',
+    'opportunities' => 'opportunities_categories',
+  );
+
+  if($vocabName != '' && $arrVocabMapper[$vocabName] != '') {
+    return $arrVocabMapper[$vocabName];
+  }
+
+  return FALSE;
+}

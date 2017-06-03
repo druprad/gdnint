@@ -1,0 +1,4 @@
+name = GDN Core
+description = Module for GDN's custom features.
+core = 7.x
+package = Custom
