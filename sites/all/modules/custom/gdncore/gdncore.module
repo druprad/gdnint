@@ -34,11 +34,19 @@ function _gdncore_vocabulary_terms() {
   $arg2 = arg(2);
   $arg3 = (int) arg(3);
 
-  if($arg1 == 'taxonomy' && $arg2 == 'term') {
+  /*if($arg1 == 'taxonomy' && $arg2 == 'term') {
     if($arg3 > 0) {
       $termId = $arg3;
     } else if($arg3 == '' || $arg3 == NULL) {
       $termId = (int) arg(4);
+    }
+  }*/
+
+  if( $arg1 == 'term' || $arg2 == 'term' ) {
+    if((int) $arg2 == 0) {
+      $termId = $arg3;
+    } else if((int) $arg2 > 0) {
+      $termId = $arg2;
     }
   }
 
