@@ -8,6 +8,9 @@ function gdncore_block_info() {
   $blocks['vocabulary_terms'] = array(
     'info' => t('Vocabulary Terms'),
   );
+  $blocks['vocabulary_child_terms'] = array(
+    'info' => t('Vocabulary Child Terms'),
+  );
 
   return $blocks;
 }
@@ -22,6 +25,10 @@ function gdncore_block_view($delta = '') {
     case 'vocabulary_terms':
       $block['subject'] = '';
       $block['content'] = _gdncore_vocabulary_terms();
+      break;
+    case 'vocabulary_child_terms':
+      $block['subject'] = '';
+      $block['content'] = _gdncore_vocabulary_child_terms();
       break;
   }
 
@@ -62,6 +69,24 @@ function _gdncore_vocabulary_terms() {
   return theme('vocabulary_terms_theme', array('terms' => $tree));
 }
 
+function _gdncore_vocabulary_child_terms() {
+  $arg1 = arg(1);
+  $arg2 = arg(2);
+  if( $arg1 == 'term' || $arg2 == 'term' ) {
+    if((int) $arg2 == 0) {
+      $termId = $arg3;
+    } else if((int) $arg2 > 0) {
+      $termId = $arg2;
+    }
+  }
+
+  $objTerm = taxonomy_term_load($termId);
+  //echo $termId;
+  //print_r($objTerm);die;
+  $tree = taxonomy_get_tree($objTerm->vid);
+  return theme('vocabulary_child_terms_theme', array('terms' => $tree, 'current_term' => $objTerm->name));
+}
+
 /**
 * Implements hook_theme().
 */
@@ -70,6 +95,10 @@ function gdncore_theme($existing, $type, $theme, $path) {
     'vocabulary_terms_theme' => array(
       'variables' => array('taxonomies' => NULL ),
       'template' => 'vocabulary_terms',
+    ),
+    'vocabulary_child_terms_theme' => array(
+      'variables' => array('taxonomies' => NULL, 'current_term' => NULL),
+      'template' => 'vocabulary_child_terms',
     ),
   );
 }
