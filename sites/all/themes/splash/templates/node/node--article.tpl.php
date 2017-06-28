@@ -94,12 +94,14 @@
 
     <section class="post-content">
         <div class="meta">
+            <?php /*
              <ul>
                   <li><?php print date('d M y', $created);?></li>
                   <li>Posted by <?php print $name;?></li>
                   <li><?php print $blog_categories;?></li>
                   <li><?php print $comment_count;?> Comments</a></li>
              </ul>
+             */ ?>
         </div>
         <h2><a href="<?php print $node_url;?>"><?php print $title;?></a></h2>
 

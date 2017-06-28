@@ -83,7 +83,7 @@
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
    <!-- Begin media blog -->
-      <?php
+    <?php
         $image_url = file_create_url($node->field_article_image['und']['0']['uri']);
         $image_url = parse_url($image_url);
         $image_path = $image_url['path'];
@@ -94,11 +94,13 @@
 
   <section class="post-content">
     <div class="meta">
+        <?php /*
         <ul>
             <li><span class="date"><?php print date('d F Y', $created);?></span></li>
             <li><span>Post by <?php print strip_tags($name);?></span></li>
             <li><span class="comments"><?php print $comment_count;?> Comments</span></li>
         </ul>
+        */ ?>
     </div>
     <h6 class="post-title">
        <a href="<?php print $node_url;?>"><?php print $title;?></a>

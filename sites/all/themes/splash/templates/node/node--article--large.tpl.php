@@ -85,10 +85,11 @@
    <!-- Begin media blog -->
        <?php print render($content['field_media']);?>
   <!-- End media blog -->
-  
+
   <div class="image-caption">
-    <div class="meta"> 
-      <ul>  
+    <div class="meta">
+      <?php /*
+      <ul>
           <li><span class="date"><?php print date('d F Y', $created);?></span> </li>
           <li><span>Post by <?php print strip_tags($name);?></span> </li>
         <?php if (isset($blog_categories)):?>
@@ -96,8 +97,9 @@
         <?php endif;?>
           <li><span class="comments"><?php print $comment_count;?> Comments</span></li>
       </ul>
-    </div>  
-      
+      */ ?>
+    </div>
+
     <h2 class="post-title">
        <a href="<?php print $node_url;?>"><?php print $title;?></a>
     </h2>
@@ -105,4 +107,4 @@
     <p><?php print strip_tags(render($content['body']));?> [...]</p>
     <a class="more" href="<?php print $node_url;?>">read more ›</a>
   </div>
- </div> 
+ </div>

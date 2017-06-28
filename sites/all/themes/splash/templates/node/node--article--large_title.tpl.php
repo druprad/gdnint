@@ -92,8 +92,8 @@
             <h1 class="post-big-title">
                 <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
             </h1>
-            <div class="meta"> 
-                <ul>  
+            <div class="meta">
+                <ul>
                     <li><span class="date"><?php print date('d F Y', $created); ?></span> </li>
                     <li><span>Post by <?php print strip_tags($name); ?></span> </li>
                     <?php if (isset($blog_categories)): ?>
@@ -101,7 +101,7 @@
                     <?php endif; ?>
                     <li><span class="comments"><?php print $comment_count; ?> Comments</span></li>
                 </ul>
-            </div>      
+            </div>
         </div>
     </div>
-</div> 
+</div>
