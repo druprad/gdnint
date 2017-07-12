@@ -11,6 +11,9 @@ function gdncore_block_info() {
   $blocks['vocabulary_child_terms'] = array(
     'info' => t('Vocabulary Child Terms'),
   );
+  $blocks['program_more_block'] = array(
+    'info' => t('Program menu more block'),
+  );
 
   return $blocks;
 }
@@ -29,6 +32,10 @@ function gdncore_block_view($delta = '') {
     case 'vocabulary_child_terms':
       $block['subject'] = '';
       $block['content'] = _gdncore_vocabulary_child_terms();
+      break;
+    case 'program_more_block':
+      $block['subject'] = '';
+      $block['content'] = _gdncore_program_more_block();
       break;
   }
 
@@ -87,6 +94,36 @@ function _gdncore_vocabulary_child_terms() {
   return theme('vocabulary_child_terms_theme', array('terms' => $tree, 'current_term' => $objTerm->name));
 }
 
+function _gdncore_program_more_block()
+{
+  $pathAlias = drupal_get_path_alias(current_path());
+  $capacityLink = 'program-capacity/building-research-capacity-least-developed-countries';
+  $excellenceLink = 'program-capacity/development-aid-effectiveness-africa';
+  $outreachLink = 'program-capacity/doing-research-assessing-environment-social-science-research-developing';
+  $links = array(
+    'capacity' => $capacityLink,
+    'excellence' => $excellenceLink,
+    'outreach' => $outreachLink,
+  );
+
+  switch ($pathAlias) {
+    case $capacityLink:
+      unset($links['capacity']);
+      break;
+    case $excellenceLink:
+      unset($links['excellence']);
+      break;
+    case $outreachLink:
+      unset($links['outreach']);
+      break;
+    default:
+      break;
+  }
+  
+  return theme('program_more_block', array('links' => $links));
+
+}
+
 /**
 * Implements hook_theme().
 */
@@ -99,6 +136,10 @@ function gdncore_theme($existing, $type, $theme, $path) {
     'vocabulary_child_terms_theme' => array(
       'variables' => array('taxonomies' => NULL, 'current_term' => NULL),
       'template' => 'vocabulary_child_terms',
+    ),
+    'program_more_block' => array(
+      'variables' => array('links' => NULL),
+      'template' => 'program_more_block',
     ),
   );
 }
