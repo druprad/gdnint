@@ -14,6 +14,9 @@ function gdncore_block_info() {
   $blocks['program_more_block'] = array(
     'info' => t('Program menu more block'),
   );
+  $blocks['level_one_more'] = array(
+    'info' => t('Level one more block'),
+  );
 
   return $blocks;
 }
@@ -36,6 +39,10 @@ function gdncore_block_view($delta = '') {
     case 'program_more_block':
       $block['subject'] = '';
       $block['content'] = _gdncore_program_more_block();
+      break;
+    case 'level_one_more':
+      $block['subject'] = '';
+      $block['content'] = _gdncore_level_one_more();
       break;
   }
 
@@ -106,7 +113,7 @@ function _gdncore_program_more_block()
     'outreach' => $outreachLink,
   );
 
-  switch ($pathAlias) {
+  /*switch ($pathAlias) {
     case $capacityLink:
       unset($links['capacity']);
       break;
@@ -118,10 +125,34 @@ function _gdncore_program_more_block()
       break;
     default:
       break;
+  }*/
+
+  if(($key = array_search($pathAlias, $links)) !== false) {
+    unset($links[$key]);
   }
   
   return theme('program_more_block', array('links' => $links));
 
+}
+
+function _gdncore_level_one_more() {
+  
+  $pathAlias = drupal_get_path_alias(current_path());
+  $researchLink = 'topic/research';
+  $opportunitiesLink = 'topic/opportunities';
+  $resultsLink = 'topic/results';
+  
+  $links = array(
+    'research' => $researchLink,
+    'opportunities' => $opportunitiesLink,
+    'results' => $resultsLink,
+  );
+
+  if(($key = array_search($pathAlias, $links)) !== false) {
+    unset($links[$key]);
+  }
+
+  return theme('level_one_more', array('links' => $links));
 }
 
 /**
@@ -140,6 +171,10 @@ function gdncore_theme($existing, $type, $theme, $path) {
     'program_more_block' => array(
       'variables' => array('links' => NULL),
       'template' => 'program_more_block',
+    ),
+    'level_one_more' => array(
+      'variables' => array('links' => NULL),
+      'template' => 'level_one_more',
     ),
   );
 }
