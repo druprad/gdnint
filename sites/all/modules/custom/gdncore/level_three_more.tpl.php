@@ -1,4 +1,5 @@
 <?php if(count($links)): ?>
+<h3 class="block-title">More</h3>
 <div class="view-content">
 <div class="item-list">
 
