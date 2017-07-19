@@ -9,7 +9,7 @@
 			<!-- <a href="<?php //echo $link; ?>">
 				<?php //echo ucwords($title); ?>
 			</a>  -->
-			<?php echo l(ucwords($title), $link); ?>
+			<?php echo l(ucwords(strtolower($title)), $link); ?>
 		</span>
 	</li>
 	<?php endforeach; ?>
