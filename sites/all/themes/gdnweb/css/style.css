@@ -984,7 +984,7 @@ li { list-style:none;}
 
 .ablocktitle h5 a { color:#000; font-size:22px;}
 
-.blocktitle { padding:5px; width:100%; background-color: #fff; float:left;}
+.blocktitle { padding:5px 5px 5px 0px; width:100%; background-color: #fff; float:left;}
 
 .blocktitle p a { display:block; font-weight:bold; font-size:16px; margin-top:10px;}
 
@@ -1104,4 +1104,51 @@ line-height:40px;
 
 #section-footer li a {
   color: #666 !important;
+}
+#section-header .region-search {
+  background: #FFFFFF;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  height: 115px;
+  -webkit-transition: all 0.3 ease-in-out;
+  -moz-transition: all 0.3 ease-in-out;
+  -o-transition: all 0.3 ease-in-out;
+  -ms-transition: all 0.3 ease-in-out;
+  transition: all 0.3 ease-in-out;
+}
+#section-header .region-search input[name="search_block_form"] {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 rgba(0,0,0,0) !important;
+    border-bottom: 0 solid rgba(0,0,0,0.05) !important;
+    border-image: none !important;
+    border-left: 0 none !important;
+    border-right: 0 none !important;
+    border-top: 0 none !important;
+    color: #B9BEC3;
+    font-size: 30px;
+    font-weight: 300;
+    height: 53px !important;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 36px !important;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-top: 7px;
+    position: absolute;
+    top: 30px;
+    vertical-align: middle;
+    width: 100%;
+}
+#section-header .region-search .search-close {
+    font-size: 25px;
+    line-height: 70px;
+    display: block;
+    text-align: center;
+    color: #B9BEC3;
 }
