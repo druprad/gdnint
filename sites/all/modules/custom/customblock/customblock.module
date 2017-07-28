@@ -79,6 +79,7 @@ function customblock_views_pre_render(&$view) {
  * @param type $query
  */
 function customblock_views_query_alter(&$view, &$query) {
+
   // Condition for Sidebar filter on Category Page.
   if ($view->name == 'related_article_for_category') {
     $term_id = arg(2);
@@ -90,5 +91,18 @@ function customblock_views_query_alter(&$view, &$query) {
                               );
     }
   }
+  if($view->name == 'related_article_for_opportunity') {
+    echo 'Here';
+  }
 }
 
+
+function customblock_form_alter(&$form, &$form_state, $form_id)
+{
+
+  if($form_id == "article_node_form") {
+    $form['body'][LANGUAGE_NONE][0]['summary']['#required'] = TRUE;
+    $script = 'jQuery(document).ready(function(){ jQuery(".link-edit-summary").click(); });';
+    drupal_add_js($script, 'inline');
+  }
+}

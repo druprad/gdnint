@@ -3,7 +3,7 @@
 <div class="block block-views title-left" id="vocabulary-terms-first-level">
 	<h3 class="block-title">Child Categories</h3>
 	<div class='content'>
-		<div class='item-list'>
+		<div class='item-list block-margin'>
 			<ul class="circled">
 				<?php foreach($terms as $termKey => $termVal)  {
 						if($current_term == $termVal->name) {
