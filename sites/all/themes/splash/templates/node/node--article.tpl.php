@@ -81,6 +81,7 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="post">
 
+    <div class="post-content"><h2><a href="<?php print $node_url;?>"><?php print $title;?></a></h2></div>
     <div class="media_element">
 
       <?php
@@ -88,7 +89,9 @@
         $image_url = parse_url($image_url);
         $image_path = $image_url['path'];
       ?>
-      <img src="<?php print $image_path;?>">
+      <?php if(file_exists($node->field_article_image['und']['0']['uri'])): ?>
+        <img src="<?php print $image_path;?>">
+      <?php endif; ?>
       <?php //print render(drupal_realpath('public://');$content['field_article_image']['und']['0']['uri']);?>
     </div>
 
@@ -103,7 +106,7 @@
              </ul>
              */ ?>
         </div>
-        <h2><a href="<?php print $node_url;?>"><?php print $title;?></a></h2>
+
 
         <div class="post_desc">
           <?php print render($content['body']);?>
