@@ -101,7 +101,11 @@ function _gdncore_level_three_more() {
       unset($nodeByTerm[$key]);
     }
 
+    $limit = 0;
     foreach($nodeByTerm as $key => $val) {
+      if(++$limit == 6) {
+        break;
+      }
       $objNode = node_load($val);
       $links[$objNode->title] = 'node/'.$objNode->nid;
     }
